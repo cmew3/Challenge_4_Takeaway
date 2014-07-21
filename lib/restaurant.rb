@@ -11,12 +11,13 @@ require_relative 'message'
 
 class Restaurant
 	
-	def initialize name
+	def initialize name, number = "+441565760052"
 		@name = name
 		@menu =Menu.new
+		@number = number
 	end
 
-	attr_reader :name, :menu
+	attr_reader :name, :menu, :number
 
 	def create_menu dishes
 		@menu = Menu.new(dishes)
@@ -42,6 +43,9 @@ class Restaurant
 		customer.order.add(menu.dishes[dish_number-1], quantity: quantity)
 	end
 
-
+	def send_message_to customer
+		message = Message.new(to: customer.contact_number, from: number)
+		message.send
+	end
 
 end
