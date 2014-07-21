@@ -16,15 +16,5 @@ class Menu
 		@dishes.delete_if { |dish| dish.name == dish_name }
 	end
 
-	# def print_as_list 
-	# 	print_header
-	# 	for i in 1..dishes.length
-	# 		puts "#{i}. #{dishes[i-1].name}    £#{dishes[i-1].price}"
-	# 	end
-	# end
 
-	# def print_header
-	# 	puts "#{self.class}"
-	# 	puts "-"*(self.class.to_s.length)
-	# end
 end

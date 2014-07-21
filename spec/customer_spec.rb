@@ -2,11 +2,11 @@ require 'customer'
 
 describe Customer do
 
-	let(:customer) {Customer.new("Charlotte", "+447775905676" )}
+	let(:customer) {Customer.new(name: "Charlotte", contact_number: "+447775905676" )}
 
 	it 'can create an order' do
 		customer.create_order
-		expect(customer.orders.count).to eq 1	
+		expect(customer.order).to be_a(Order)	
 	end
 
 	it 'is created with a name' do

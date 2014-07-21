@@ -21,15 +21,12 @@ describe Order do
 		expect(order.dishes).to eq [dish1]
 	end	
 
-	xit 'can delete a dish by name' do
+	it 'can delete a dish by name' do
 		test_order.remove("Fish and chips")
 		test_order.remove(dish3)
 		expect(test_order.dishes).to eq [dish1,dish2]
 	end
 
-	xit 'can be printed' do
-		test_order.print_as_list
-	end
 
 	it 'has a quantity for a dish' do
 		order.add(dish1,quantity: 4)

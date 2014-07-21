@@ -1,7 +1,7 @@
 require 'message'
 
 describe Message do
-	let(:message) {Message.new}
+	let(:message) {Message.new(to: "+447775905676", from:"+441565760052")}
 	
 	it 'generates a message with the correct time' do
 		allow(message).to receive(:time_estimate).and_return("6:00 PM")
@@ -15,6 +15,6 @@ describe Message do
     		:to => "+447775905676",
    			:from => "+441565760052")
 		message.generated_message
-	end
+	end	
 
 end	
