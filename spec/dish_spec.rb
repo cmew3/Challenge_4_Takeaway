@@ -17,4 +17,8 @@ describe Dish do
 		expect(dish.quantity).to eq 3
 	end
 
+	it 'can be displayed in csv format' do
+		expect(dish.to_csv).to eq ["Ham and leek pie", "6.5"]
+	end
+
 end

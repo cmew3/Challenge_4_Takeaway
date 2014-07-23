@@ -9,4 +9,8 @@ class Dish
 		@quantity = 0	
 	end
 
+	def to_csv
+		[name.to_s,price.to_s]
+	end
+
 end

@@ -5,7 +5,7 @@ require_relative 'customer'
 require_relative 'message'
 
 # creates dishes
-# creates menu
+# creates menu (either manually or from file)
 # asks customer for order
 # sends customer message
 
@@ -13,14 +13,13 @@ class Restaurant
 	
 	def initialize name, number = "+441565760052"
 		@name = name
-		@menu =Menu.new
 		@number = number
 	end
 
 	attr_reader :name, :menu, :number
 
-	def create_menu dishes
-		@menu = Menu.new(dishes)
+	def create_menu dishes =[]
+		@menu =Menu.new(dishes)
 	end
 		
 	def print_menu 
@@ -33,6 +32,15 @@ class Restaurant
 	def print_header
 		puts "#{name} #{Menu}"
 		puts "-"*(name.length+5)
+	end
+
+	def get_order_details_from customer
+		loop do
+			ask_for_dish_from customer
+			puts "Would you like to add another dish (Y/N)?"
+			selection = gets.chomp
+			break if selection = "N"
+		end
 	end
 
 	def ask_for_dish_from customer

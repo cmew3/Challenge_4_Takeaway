@@ -8,8 +8,13 @@ class Customer
 		@contact_number = contact_number
 	end
 
-	def create_order
-		@order = Order.new
+	def request_menu_from restaurant
+		restaurant.print_menu
+	end
+
+	def place_order_at restaurant
+		@order=Order.new
+		restaurant.get_order_details_from self
 	end
 
 end	

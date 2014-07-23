@@ -27,9 +27,22 @@ describe Menu do
 		expect(pub_menu.dishes).to eq [dish1,dish2]
 	end
 
-	xit 'can be printed' do
-		pub_menu.print_as_list
+	it 'can be loaded from a csv file' do	
+		csv = ["Thai green curry", "7"]
+		allow(CSV).to receive(:foreach).with("./menu.csv").and_yield(csv)
+		menu.load_from "./menu.csv"
+		expect(menu.dishes[0].name).to eq "Thai green curry"
+		expect(menu.dishes[0].price).to eq 7
 	end
 
-end
+	it 'can be saved to a csv file' do
+		menu.add dish1
+		menu.add dish2
+		csv = double
+		expect(csv).to receive(:<<).with(dish1.to_csv)
+		expect(csv).to receive(:<<).with(dish2.to_csv)
+		allow(CSV).to receive(:open).with("./menu.csv","wb").and_yield(csv)
+		menu.save_to "./menu.csv"
+	end
+end	
 
