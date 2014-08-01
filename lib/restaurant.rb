@@ -39,9 +39,9 @@ class Restaurant
 			ask_for_dish_from customer
 			puts "Would you like to add another dish (Y/N)?"
 			selection = gets.chomp
-			break if selection == "N"
+			break unless selection == "Y"
 		end
-		confirm_order_from customer
+		process_order_from customer
 	end
 
 	def ask_for_dish_from customer
@@ -77,7 +77,7 @@ class Restaurant
 	end	
 
 	def send_message_to customer
-		message = Message.new(to: customer.contact_number, from: number)
+		message = Message.new(to: customer, from: self)
 		message.send
 	end
 

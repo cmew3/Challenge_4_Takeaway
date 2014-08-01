@@ -1,11 +1,11 @@
 class Customer
 
-	attr_reader :order, :name, :contact_number
+	attr_reader :order, :name, :number
 
-	def initialize name: name, contact_number: contact_number
+	def initialize name: name, number: number
 		@order = nil
 		@name = name
-		@contact_number = contact_number
+		@number = number
 	end
 
 	def request_menu_from restaurant
