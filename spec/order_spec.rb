@@ -8,23 +8,20 @@ describe Order do
 	let(:order) 	{ Order.new									}
 	let(:test_order) 	{ Order.new([dish1,dish2,dish3])									}
 
-	it 'has no dished when created' do
+	it 'has no items when created' do
 		expect(order.items).to eq []
 	end
 
-	it 'can be created with a list of items' do
-		expect(test_order.items).to eq [dish1,dish2,dish3]
-	end
-
-	it 'can add a dish' do
+	it 'can add an item' do
 		order.add dish1
 		expect(order.items).to eq [{dish: dish1, quantity: 1}]
 	end	
 
-	it 'can delete a dish by name' do
-		test_order.remove("Fish and chips")
-		test_order.remove(dish3)
-		expect(test_order.items).to eq [dish1,dish2]
+	it 'can delete an item by name' do
+		order.add dish1
+		order.add dish2
+		order.remove("Ham and leek pie")
+		expect(order.items).to eq [{dish: dish2,quantity: 1}]
 	end
 
 	it 'has a quantity for a dish' do

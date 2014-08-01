@@ -24,7 +24,7 @@ describe Customer do
 		expect(customer.order).to be_a(Order)	
 	end
 
-	it 'contacts a restaurant when it places an order' do
+	it 'contacts a restaurant when placing an order' do
 		expect(restaurant).to receive(:get_order_details_from).with(customer)
 		customer.place_order_at restaurant
 	end

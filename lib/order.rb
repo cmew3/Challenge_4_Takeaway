@@ -13,7 +13,7 @@ class Order
 	end
 
 	def remove dish_name
-		@items.delete_if { |dish| dish.name == dish_name }
+		@items.delete_if { |item| item[:dish].name == dish_name }
 	end
 
 	def total_price

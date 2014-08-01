@@ -8,10 +8,6 @@ describe Menu do
 	let(:menu) 		{ Menu.new									}
 	let(:pub_menu) 	{ Menu.new([dish1,dish2,dish3])									}
 
-	it 'has no dished when created' do
-		expect(menu.dishes).to eq []
-	end
-
 	it 'can be created with a list of dishes' do
 		expect(pub_menu.dishes).to eq [dish1,dish2,dish3]
 	end
