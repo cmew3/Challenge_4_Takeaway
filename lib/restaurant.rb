@@ -30,7 +30,7 @@ class Restaurant
 	end
 
 	def print_header
-		puts "#{name} #{Menu}"
+		puts "#{name} Menu"
 		puts "-"*(name.length+5)
 	end
 
@@ -39,8 +39,9 @@ class Restaurant
 			ask_for_dish_from customer
 			puts "Would you like to add another dish (Y/N)?"
 			selection = gets.chomp
-			break if selection = "N"
+			break if selection == "N"
 		end
+		confirm_order_from customer
 	end
 
 	def ask_for_dish_from customer
@@ -48,8 +49,32 @@ class Restaurant
 		dish_number = gets.chomp.to_i
 		puts "Please enter quantity of dish"
 		quantity = gets.chomp.to_i
-		customer.order.add(menu.dishes[dish_number-1], quantity: quantity)
+		customer.order.add(menu.dishes[dish_number-1], quantity)
 	end
+
+	def confirm_order_from customer
+			print_order_from customer
+			puts "Please confirm ('Y') or cancel ('N') your order"
+			gets.chomp
+	end
+
+	def print_order_from customer
+		puts "Order Summary"
+		for i in 1..customer.order.items.length
+			puts "#{i}. #{customer.order.items[i-1][:dish].name}    Quantity: #{customer.order.items[i-1][:quantity]}    Price: £#{customer.order.items[i-1][:dish].price*customer.order.items[i-1][:quantity]}"
+		end 
+			puts "Order total: £#{customer.order.total_price}"
+	end
+
+	def process_order_from customer
+		selection = confirm_order_from customer
+		case selection
+		when "Y"
+			send_message_to customer
+		else
+			puts "Order has been cancelled"
+		end
+	end	
 
 	def send_message_to customer
 		message = Message.new(to: customer.contact_number, from: number)
