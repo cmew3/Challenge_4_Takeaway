@@ -8,10 +8,10 @@ Challenge to create a takeway ordering program in Ruby. The program provides a l
 
 ###Notes
   + The text sending functionality was implemented using Twilio API (note the free version only works with pre-registered numbers)
-  + We use the twilio-ruby gem to access the API
-  + Use a Gemfile to manage your gems
+  + Gemfile to manage gems (including twilio-ruby gem to access the API)
   + Unit tested using rspec with mocks and/or stubs, as necessary to avoid sending texts when running tests
-  + However, if program is loaded into IRB and the order is placed, the text is sent (provided number + Focus for the challenge was on good OO design and programming. In particular, the SOLID principles!
+  + However, if program is loaded into IRB and the order is placed, the text is sent (provided number is verified)
+  + Focus for the challenge was on good OO design and programming. In particular, the SOLID principles!
 
 
 How to run tests
