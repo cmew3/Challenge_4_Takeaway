@@ -6,13 +6,12 @@ Makers Academy Week 4 Challenge - Part 2
 
 Challenge to create a takeway ordering program in Ruby. The program provides a list of dishes with prices and allow customers to place an order by giving the list of dishes, their quantities and a number that should be the exact total. Once an order is placed, the customer is sent a text saying that the order was placed successfully and that it will be delivered 1 hour from now.
 
-#Notes
-1. The text sending functionality was implemented using Twilio API (note the free version only works with pre-registered numbers)
-2. We use the twilio-ruby gem to access the API
-3. Use a Gemfile to manage your gems
-4. Unit tested using rspec with mocks and/or stubs, as necessary to avoid sending texts when running tests
-5. However, if program is loaded into IRB and the order is placed, the text is sent (provided number has been verified).
-6. Focus for the challenge was on good OO design and programming. In particular, the SOLID principles!
+###Notes
+  + The text sending functionality was implemented using Twilio API (note the free version only works with pre-registered numbers)
+  + We use the twilio-ruby gem to access the API
+  + Use a Gemfile to manage your gems
+  + Unit tested using rspec with mocks and/or stubs, as necessary to avoid sending texts when running tests
+  + However, if program is loaded into IRB and the order is placed, the text is sent (provided number + Focus for the challenge was on good OO design and programming. In particular, the SOLID principles!
 
 
 How to run tests
